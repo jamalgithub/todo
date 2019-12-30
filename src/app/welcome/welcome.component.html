@@ -1,0 +1,14 @@
+<H1>Welcome!</H1>
+
+<div class="container">
+    Welcome <span appHighlight>{{name}}</span>. You can manage your {{ 'todos' | uppercase}} <a routerLink="/todos">here</a>
+    <br>Square root of 25 is: {{25 | sqrt}}
+
+    <h2>Todos Data</h2>
+    <p>Mis à jour : {{ lastUpdate | async | date: 'short' | uppercase }}</p>
+    <ul>
+        <li *ngFor="let item of tododata | slice:0:10; let i = index">
+            ({{i+1}}) {{item.title}} <span *ngIf="item.completed" class="completed" >Completed !!</span>
+        </li>
+    </ul>
+</div>
